@@ -1,6 +1,7 @@
 import React from "react";
 import logo from "../../../assets/logo-dio.png";
 import { Button } from "../button";
+import {IHeader} from './types'
 
 import {
   BuscarImputContainer,
@@ -13,7 +14,7 @@ import {
   UserPicture,
 } from "./styles";
 
-const Header = ({ autenticado }) => {
+const Header = ({ autenticado }: IHeader) => {
   return (
     <Wrapper>
       <Container>

@@ -19,6 +19,7 @@ import {
   TitleLogin,
   Wrapper,
 } from "./styles";
+import { IFormData } from "./types";
 
 const schema = yup
   .object({
@@ -33,16 +34,12 @@ const schema = yup
 const Login = () => {
   const navigate = useNavigate();
 
-  const {
-    control,
-    handleSubmit,
-    formState: { errors },
-  } = useForm({
+  const { control, handleSubmit, formState: { errors } } = useForm<IFormData>({
     resolver: yupResolver(schema),
     mode: "onChange",
   });
 
-  const onSubmit = async (formData) => {
+  const onSubmit = async (formData: IFormData) => {
     try {
       const { data } = await api.get(
         `users?email=${formData.email}&senha=${formData.password}`

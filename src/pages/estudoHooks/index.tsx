@@ -3,7 +3,7 @@
     useEffect: define um efeito colateral do codigo
     useMemo: memoriza um dado pra nao ter q renderizar sempre
     useCallback: evita q uma funcao tenha q ser executada sempre
-*/
+
 
 import React, { useCallback, useMemo } from "react";
 import { useState, useEffect } from "react";
@@ -43,4 +43,4 @@ const Teste = () => {
   );
 };
 
-export { Teste };
+export { Teste };*/
