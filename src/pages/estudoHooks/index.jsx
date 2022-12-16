@@ -5,47 +5,42 @@
     useCallback: evita q uma funcao tenha q ser executada sempre
 */
 
-
-import React, { useCallback, useMemo } from 'react'
-import { useState, useEffect } from 'react'
+import React, { useCallback, useMemo } from "react";
+import { useState, useEffect } from "react";
 
 const Teste = () => {
-  
-  const [ Age, setAge] = useState(19);
-  const [ Name, setName] = useState("Tiago");
+  const [Age, setAge] = useState(19);
+  const [Name, setName] = useState("Tiago");
 
-  const CliqueTesteName = useCallback(() =>{
-    console.log('mudou o nome')
-    setName(previa=>previa==='Tiago' ? 'Estevam' : 'Tiago')
-    })
+  const CliqueTesteName = useCallback(() => {
+    console.log("mudou o nome");
+    setName((previa) => (previa === "Tiago" ? "Estevam" : "Tiago"));
+  });
 
-  const CliqueTesteAge = useCallback(() =>{
-    setAge(previa=>previa===19 ? 120 : 19)
-    })
-  
-    const calculo = useMemo(()=> {
-        console.log('calculou', Age);
-        return 10*Age;
-    }, [Age]);
+  const CliqueTesteAge = useCallback(() => {
+    setAge((previa) => (previa === 19 ? 120 : 19));
+  });
 
-    console.log('renderizou', calculo)
+  const calculo = useMemo(() => {
+    console.log("calculou", Age);
+    return 10 * Age;
+  }, [Age]);
 
+  console.log("renderizou", calculo);
 
-    
-    useEffect(()=>{
-        alert("Ta mudando de nome hein...")
-    },[Name]);
-   
-  
+  useEffect(() => {
+    alert("Ta mudando de nome hein...");
+  }, [Name]);
+
   return (
     <div>
-        <p>{Age}</p>
-        <br />
-        <p>{Name}</p>
-        <button onClick={CliqueTesteAge}>Mudar Idade</button>
-        <button onClick={CliqueTesteName}>Mudar Nome</button>
+      <p>{Age}</p>
+      <br />
+      <p>{Name}</p>
+      <button onClick={CliqueTesteAge}>Mudar Idade</button>
+      <button onClick={CliqueTesteName}>Mudar Nome</button>
     </div>
-  )
-}
+  );
+};
 
-export {Teste}
+export { Teste };
